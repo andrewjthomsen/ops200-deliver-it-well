@@ -37,4 +37,15 @@ describe('server/app.js', function() {
       done();
     });
   });
+
+  
+  it('This is currently working? Maybe. Maybe not?', (done) => {
+    chai.request(server)
+      .get('/')
+      .end((err, res) => {
+        expect(err).not.exist;
+        expect(JSON.stringify(res.text)).to.contain('This is currently working? Maybe. Maybe not?');
+        done();
+      });
+    });
 })
